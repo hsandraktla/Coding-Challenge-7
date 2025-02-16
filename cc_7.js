@@ -38,3 +38,21 @@ const calculateLoyalDiscount = (amount, years) => {
 console.log(calculateLoyalDiscount(100, 6)); //Expected output: "Discounted Price: $85.00"
 console.log(calculateLoyalDiscount(200, 2)); //Expected output: "Discounted Price: $190.00"
 
+
+//Task 4: Product Shipping Cost Calculation - Parameters and Arguments
+//Write a function calculateShippingCost(weight, location, expedited = false) to calculate shipping fees.
+function calculateShippingCost(weight, location, expedited = false) {
+    let shippingCost = 0;
+    if (location === "USA") {
+        shippingCost = 5 + (weight * 0.5); //Formula to calculate the shipping cost for USA.
+    } else {
+        shippingCost = 10 + (weight * 0.7); //Formula to calculate the shipping cost for Canada.
+    };
+    if (expedited === true) {
+        shippingCost += 10; //Add $10 for expedited shipping.
+    };
+    return `Shipping Cost: $${shippingCost.toFixed(2)}`; //Returm the shipping cost with 2 decimal places.
+};
+//Log the results with the given data.
+console.log(calculateShippingCost(10, "USA", true)); //Expected output: "Shipping Cost: $20.00"
+console.log(calculateShippingCost(5, "Canada", false)); //Expected output: "Shipping Cost: $13.50"
