@@ -79,3 +79,21 @@ function filterHighValueTransactions(transactions, filterFunction) {
 };
 //Log the result with the given data.
 console.log(filterHighValueTransactions(transactions, amount => amount > 1000)); //Expected output: High Value Transactions: 1200, 3000, 2200"
+
+
+//Task 7: Budget Tracker - Closures
+//Write a function createBudgetTracker() that returns another function to add expenses and keep a running balance.
+function createBudgetTracker() {
+    let currentBalance = 0; //Intialize the current balance.
+    return function(balance) { //Returns a function that takes a balance as an argument.
+        currentBalance -= balance; //Substract the balance from the current balance.
+        return `Current Balance: -$${Math.abs(currentBalance)}`; //Return the current balance using math.abs() method with a negative sign to show the overdrawn balance.
+    };
+};
+//Log the results with the given data.
+let budget = createBudgetTracker();
+console.log(budget(300)); //Expected output: "Current Balance: -$300"
+console.log(budget(200)); //Expected output: "Current Balance: -$500"
+
+
+
