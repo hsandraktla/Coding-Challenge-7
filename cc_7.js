@@ -96,4 +96,16 @@ console.log(budget(300)); //Expected output: "Current Balance: -$300"
 console.log(budget(200)); //Expected output: "Current Balance: -$500"
 
 
+//Task 8: Business Growth Projection - Recursion in JavaScript
+//Write a recursive function calculateGrowth(years, revenue) that projects revenue growth.
+function calculateGrowth(years, revenue) {
+    if (years >= 10) { 
+        return `Projected Revenue: $${revenue.toFixed(2)}`; //Return the projected revenue with 2 decimal places if the years are greater then or equal to 10.
+    };
+    return calculateGrowth(years + 1, revenue * 1.05); //Return the function with the next year and 5% growth rate.
+};
+//Log the results with given data.
+console.log(calculateGrowth(8, 1000)); //Expected output: "Projected Revenue: $1102.50"
+console.log(calculateGrowth(5, 5000)); //Expected output: "Projected Revenue: $6381.41"
+
 
